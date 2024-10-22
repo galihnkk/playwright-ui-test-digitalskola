@@ -13,6 +13,10 @@ Web UI https://www.saucedemo.com/
     ```bash
     cd playwright-ui-test-digitalskola
     ```
+3. Install Playwright
+   ```bash
+    npm install playwright
+    ```
 
 ## Penggunaan
 
