@@ -1,4 +1,5 @@
 class DashboardPage {
+    
     constructor(page) {
         this.page = page;
         this.pageTitle = '.title';

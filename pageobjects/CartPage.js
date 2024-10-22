@@ -1,4 +1,5 @@
 class CartPage {
+    
     constructor(page) {
         this.page = page;
         this.cartLink = '.shopping_cart_link';

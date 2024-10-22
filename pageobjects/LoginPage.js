@@ -1,4 +1,5 @@
 class LoginPage {
+    
     constructor(page) {
         this.page = page;
         this.usernameInput = 'input[data-test="username"]';
