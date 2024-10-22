@@ -17,6 +17,10 @@ Web UI https://www.saucedemo.com/
     ```bash
     git checkout page-object
     ```
+4. Install Playwright
+   ```bash
+    npm install playwright
+    ```
 
 ## Penggunaan
 
