@@ -17,7 +17,12 @@ test.describe('SauceDemo PO Tests with Screenshot Validation', () => {
 
     test('User success login', async ({ page }) => {
 
+        const loginScreenshotBefore = await page.screenshot();
+    expect(loginScreenshotBefore).toMatchSnapshot('loginPage.png');
+
         await loginPage.login('standard_user', 'secret_sauce');
+
+        await loginPage.takeScreenshotAfterLogin();
     
         expect(page.url()).toBe('https://www.saucedemo.com/inventory.html');
     
@@ -33,7 +38,7 @@ test.describe('SauceDemo PO Tests with Screenshot Validation', () => {
         expect(isOnDashboard).toBeTruthy();
 
         const dashboardScreenshot = await page.screenshot();
-        expect(dashboardScreenshot).toMatchSnapshot('dashboardPage.png');
+        expect(dashboardScreenshot).toMatchSnapshot('loginPageAfter.png');
     });
 
     test('Add item to cart from dashboard', async ({ page }) => {
@@ -47,18 +52,22 @@ test.describe('SauceDemo PO Tests with Screenshot Validation', () => {
         const removeButtonVisible = await page.isVisible('button[data-test="remove-sauce-labs-backpack"]');
         expect(removeButtonVisible).toBeTruthy();
 
+        await dashboardPage.takeScreenshotAfterAddingItem();
+
         const cartItemScreenshot = await page.screenshot();
         expect(cartItemScreenshot).toMatchSnapshot('dashboardItem.png');
     });
 
     test('Validate item in cart', async ({ page }) => {
-        
+
         await loginPage.login('standard_user', 'secret_sauce');
         await dashboardPage.addItemToCart();
         await cartPage.navigateToCart();
-
+    
         const itemInCart = await cartPage.validateItemInCart();
         expect(itemInCart).toBeTruthy();
+    
+        await cartPage.takeScreenshot(); 
 
         const cartScreenshot = await page.screenshot();
         expect(cartScreenshot).toMatchSnapshot('cartPage.png');

@@ -8,6 +8,7 @@ class LoginPage {
     }
 
     async login(username, password) {
+
         await this.page.screenshot({ path: 'screenshots/loginPage.png' });
         
         await this.page.fill(this.usernameInput, username);
