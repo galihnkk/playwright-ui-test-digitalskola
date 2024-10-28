@@ -18,7 +18,7 @@ test.describe('SauceDemo PO Tests with Screenshot Validation', () => {
     test('User success login', async ({ page }) => {
 
         const loginScreenshotBefore = await page.screenshot();
-    expect(loginScreenshotBefore).toMatchSnapshot('loginPage.png');
+        expect(loginScreenshotBefore).toMatchSnapshot('loginPage.png');
 
         await loginPage.login('standard_user', 'secret_sauce');
 
