@@ -13,6 +13,10 @@ class CartPage {
     async validateItemInCart() {
         return await this.page.isVisible(this.cartItem);
     }
+
+    async takeScreenshot() {
+        await this.page.screenshot({ path: 'screenshots/cartPage.png' });
+    }
 }
 
 module.exports = CartPage;
