@@ -13,6 +13,14 @@ Web UI https://www.saucedemo.com/
     ```bash
     cd playwright-ui-test-digitalskola
     ```
+3. Pindah ke direktori proyek ke branch:
+    ```bash
+    git checkout page-object
+    ```
+4. Install Playwright
+   ```bash
+    npm install playwright
+    ```
 
 ## Penggunaan
 
